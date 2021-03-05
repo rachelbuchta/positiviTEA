@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import { Route } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
 import {fetchNews, fetchQuotes} from '../../utilities'
 import StoryPage from '../StoryPage/StoryPage'
