@@ -8,6 +8,7 @@ import StoryPage from '../StoryPage/StoryPage'
 function App() {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
+  const [landingPageView, setLandingPageView] = useState(true)
 
   const grabAllData = () => {
     fetchQuotes()
@@ -16,6 +17,7 @@ function App() {
         setQuote(response)
       })
       .then(grabNews())
+      .then(setLandingPageView(false))
   }
 
   const grabNews = () => {
@@ -29,11 +31,14 @@ function App() {
     return Math.floor(Math.random() * (20 - 1)) + 1
   }
 
-
   return (
     <div className="App">
-      <LandingPage grabAllData={grabAllData} />
-      <StoryPage quote={quote} news={news} />
+      {landingPageView && 
+        <LandingPage grabAllData={grabAllData} />
+      }
+      {!landingPageView && 
+        <StoryPage quote={quote} news={news} />
+      }
     </div>
   )
 }
