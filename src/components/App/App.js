@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 import './App.css'
 import LandingPage from '../LandingPage/LandingPage'
 import {fetchNews, fetchQuotes} from '../../utilities'
+import StoryPage from '../StoryPage/StoryPage'
 
 
 function App() {
-  const [quotes, setQuotes] = useState({})
+  const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
 
   const grabAllData = () => {
     fetchQuotes()
       .then(response => {
         console.log(response)
-        setQuotes(response)
+        setQuote(response)
       })
       .then(grabNews())
   }
@@ -32,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <LandingPage grabAllData={grabAllData} />
+      <StoryPage quote={quote} news={news} />
     </div>
   )
 }
