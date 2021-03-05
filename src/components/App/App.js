@@ -17,14 +17,16 @@ function App() {
         setQuote(response)
       })
       .then(grabNews())
-      .then(setLandingPageView(false))
+      
   }
 
   const grabNews = () => {
     fetchNews()
       .then(response => {
         setNews(response.articles[generateRandomNumber()])
+        console.log(news)
       })
+      .then(setLandingPageView(false))
   }
 
   const generateRandomNumber = () => {
