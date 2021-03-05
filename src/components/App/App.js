@@ -39,7 +39,7 @@ function App() {
         <LandingPage grabAllData={grabAllData} />
       } */}
       {/* {!landingPageView &&  */}
-        <StoryPage quote={quote} news={news} />
+        <StoryPage grabNews={grabNews} quote={quote} news={news} />
       {/* } */}
     </div>
   )

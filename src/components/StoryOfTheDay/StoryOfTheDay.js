@@ -2,7 +2,7 @@ import React from 'react'
 import './StoryOfTheDay.css'
 import earth from '../../assets/download.jpeg'
 
-function StoryOfTheDay({news}) {
+function StoryOfTheDay({news, grabNews}) {
 
   return (
     // <article className='story'>
@@ -41,7 +41,7 @@ function StoryOfTheDay({news}) {
       </section>
       <section className='navBtns'>
         <button className='favorite'>&hearts;</button>
-        <button className='spillAgain'>Spill it again..</button>
+        <button onClick={grabNews} className='spillAgain'>Spill it again..</button>
         <button className='viewSaved'>View Saved</button>
       </section>
     </article>

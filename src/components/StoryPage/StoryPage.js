@@ -3,12 +3,12 @@ import './StoryPage.css'
 import Header from '../Header/Header'
 import StoryOfTheDay from '../StoryOfTheDay/StoryOfTheDay'
 
-function StoryPage({quote, news}) {
+function StoryPage({quote, news, grabNews}) {
 
   return (
     <>
       <Header quote={quote}/>
-      <StoryOfTheDay news={news}/>
+      <StoryOfTheDay grabNews={grabNews} news={news}/>
     </>
   )
 }
