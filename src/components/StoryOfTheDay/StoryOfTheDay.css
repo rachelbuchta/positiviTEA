@@ -1,0 +1,63 @@
+.story {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 65vh;
+}
+
+.sod {
+  font-size: 2em;
+  margin: 2%;
+}
+
+.imgWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  justify-content: start;
+}
+
+.newsImage {
+  height: 45%;
+  width: 80%;
+  position: absolute;
+  z-index: 1;
+}
+
+.storyTitle {
+  color:blanchedalmond;
+  z-index: 2;
+}
+
+.dateAndLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 10%;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 30%;
+}
+
+.description {
+  align-self: flex-start;
+}
+
+.viewMore {
+  height: 15%;
+
+}

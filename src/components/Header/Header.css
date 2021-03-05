@@ -1,0 +1,10 @@
+header {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px black solid;
+  background-image: url('../../assets/green-background.jpg');
+  background-size: 100% 100%;
+}
