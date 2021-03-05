@@ -4,4 +4,5 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px black solid;
 }

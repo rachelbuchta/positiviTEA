@@ -1,3 +1,45 @@
 .story {
   height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sod {
+  font-size: 2em;
+  margin: 2%;
+}
+
+.imgWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  justify-content: start;
+}
+
+.newsImage {
+  height: 45%;
+  width: 80%;
+  position: absolute;
+  z-index: 1;
+}
+
+.storyTitle {
+  color:blanchedalmond;
+  z-index: 2;
+}
+
+.dateAndLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 19%;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
 }
