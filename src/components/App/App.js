@@ -36,12 +36,20 @@ function App() {
 
   return (
     <div className="App">
-      {landingPageView && 
-        <LandingPage grabAllData={grabAllData} />
-      }
-      {!landingPageView &&
-        <StoryPage grabNews={grabNews} quote={quote} news={news} />
-      }
+      < Route 
+        exact
+        path='/'
+        render={() => 
+          <LandingPage grabAllData={grabAllData} />}
+      />
+ 
+    {/* {!landingPageView && */} 
+      < Route 
+        exact
+        path='/story'
+        render={() => 
+        <StoryPage grabNews={grabNews} quote={quote} news={news} />}
+      />
     </div>
   )
 }
