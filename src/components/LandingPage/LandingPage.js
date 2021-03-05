@@ -1,10 +1,14 @@
 import React from 'react'
 import './LandingPage.css'
+import teacup from '../../assets/tea.svg'
 
 function LandingPage() {
 
   return (
-    <h1>LandingPage</h1>
+      <main>
+        <h1>positiviTEA.</h1>
+        <img className='teacup' alt='teacup' src={teacup}/> 
+      </main>
   )
 }
 
