@@ -1,0 +1,25 @@
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/green-background.jpg');
+  /* background-size: cover; */
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
+    /* background-size: 25px 50px; */
+    background-size: 100% 100%;
+}
+
+.teacup {
+  width: 18em;
+}
+
+.intro-text {
+  font-size: 1.5em;
+}
+
+.header {
+  font-size: 3em;
+}
