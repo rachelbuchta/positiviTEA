@@ -1,6 +1,9 @@
 import React from 'react'
 import './StoryOfTheDay.css'
 import { Link } from 'react-router-dom'
+import emptyHeart from '../../assets/heart.png'
+import filledHeart from '../../assets/like.png'
+import saved from '../../assets/bookmark.png'
 
 function StoryOfTheDay({news, grabNews}) {
 
@@ -21,18 +24,18 @@ const wholeStoryPopUp = () => {
           <p className='label'>Inspiring</p>
         </section>
         <section className='descriptionWrapper'>
-          <span>
+          {/* <span> */}
           <p className='description'>{news.description}</p>
-        <a href={news.url} target="_blank">
-          <button handleClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
-        </a>
-          </span>
+          <a href={news.url} target="_blank">
+            <button handleClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
+          </a>
+          {/* </span> */}
         </section>
       </div>
       <section className='navBtns'>
-        <button className='favorite'>&hearts;</button>
+        <img className='favorite' src={emptyHeart} alt='favorite and unfavorite news story'/>
         <button onClick={grabNews} className='spillAgain'>Spill it again..</button>
-        <button className='viewSaved'>View Saved</button>
+        <img className='viewSaved' src={saved} alt='view saved stories'/>
       </section>
     </article>
     // <article className='story'>

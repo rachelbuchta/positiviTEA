@@ -48,16 +48,37 @@
 
 .descriptionWrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 30%;
+  flex-direction: column;
+  justify-content: start;
+  height: 26%;
+  /* padding: 1%; */
 }
 
 .description {
   align-self: flex-start;
+  margin: 0;
 }
 
 .viewMore {
-  height: 15%;
+  height: 100%;
+}
 
+.navBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+  padding: 1%;
+}
+
+.favorite {
+  width: 3em;
+}
+
+.viewSaved {
+  width: 3em;
+}
+
+span {
+  height: 50%;
 }
