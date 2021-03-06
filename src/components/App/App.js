@@ -42,8 +42,6 @@ function App() {
         render={() => 
           <LandingPage grabAllData={grabAllData} />}
       />
- 
-    {/* {!landingPageView && */} 
       < Route 
         exact
         path='/story'
