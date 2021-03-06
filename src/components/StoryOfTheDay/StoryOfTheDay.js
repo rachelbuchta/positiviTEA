@@ -18,9 +18,13 @@ const toggleHeart = () => {
   }
 }
 
-// useEffect(() => {
-//   console.log('render')
-// }, [isFavorited])
+useEffect(() => {
+  setIsFavorited(false)
+  const localStorageKeys = Object.keys(localStorage)
+  if (localStorageKeys.includes(news.title)) {
+    setIsFavorited(true)
+  }
+}, [news])
 
 const wholeStoryPopUp = () => {
   window.open('_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
