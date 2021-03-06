@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import { Route } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
 import {fetchNews, fetchQuotes} from '../../utilities'
 import StoryPage from '../StoryPage/StoryPage'
@@ -35,12 +36,18 @@ function App() {
 
   return (
     <div className="App">
-      {landingPageView && 
-        <LandingPage grabAllData={grabAllData} />
-      }
-      {!landingPageView &&
-        <StoryPage grabNews={grabNews} quote={quote} news={news} />
-      }
+      < Route 
+        exact
+        path='/'
+        render={() => 
+          <LandingPage grabAllData={grabAllData} />}
+      />
+      < Route 
+        exact
+        path='/story'
+        render={() => 
+        <StoryPage grabNews={grabNews} quote={quote} news={news} />}
+      />
     </div>
   )
 }

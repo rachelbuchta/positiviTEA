@@ -1,7 +1,12 @@
 import React from 'react'
 import './StoryOfTheDay.css'
+import { Link } from 'react-router-dom'
 
 function StoryOfTheDay({news, grabNews}) {
+
+const wholeStoryPopUp = () => {
+  window.open('_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+}
 
   return (
     <article className='story'>
@@ -18,7 +23,9 @@ function StoryOfTheDay({news, grabNews}) {
         <section className='descriptionWrapper'>
           <span>
           <p className='description'>{news.description}</p>
-          <button className='viewMore'>See Full Story</button>
+        <a href={news.url} target="_blank">
+          <button handleClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
+        </a>
           </span>
         </section>
       </div>
