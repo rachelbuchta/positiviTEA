@@ -1,10 +1,20 @@
 header {
-  height: 20vh;
+  font-size: 1em;
+  height: 17vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 2px black solid;
   background-image: url('../../assets/green-background.jpg');
   background-size: 100% 100%;
+}
+
+.quote {
+  margin: 0;
+  width: 85%;
+}
+
+.author {
+  margin: 0;
 }

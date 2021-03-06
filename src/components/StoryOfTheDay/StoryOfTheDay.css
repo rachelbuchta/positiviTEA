@@ -51,12 +51,14 @@
   flex-direction: column;
   justify-content: start;
   height: 26%;
-  /* padding: 1%; */
+  align-items: center;
 }
 
 .description {
-  align-self: flex-start;
+  align-self: center;
   margin: 0;
+  margin-bottom: 1%;
+  width: 70%;
 }
 
 .viewMore {
@@ -81,4 +83,8 @@
 
 span {
   height: 50%;
+}
+
+.spillAgain {
+  border-radius: 50%;
 }

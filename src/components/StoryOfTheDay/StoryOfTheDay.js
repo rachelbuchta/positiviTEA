@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './StoryOfTheDay.css'
 import { Link } from 'react-router-dom'
 import emptyHeart from '../../assets/heart.png'
@@ -6,6 +6,11 @@ import filledHeart from '../../assets/like.png'
 import saved from '../../assets/bookmark.png'
 
 function StoryOfTheDay({news, grabNews}) {
+const [isFavorited, setIsFavorited] = useState(false)
+
+const toggleHeart = () => {
+  setIsFavorited(isFavorited => !isFavorited)
+}
 
 const wholeStoryPopUp = () => {
   window.open('_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
@@ -33,7 +38,12 @@ const wholeStoryPopUp = () => {
         </section>
       </div>
       <section className='navBtns'>
-        <img className='favorite' src={emptyHeart} alt='favorite and unfavorite news story'/>
+        <img 
+          className='favorite' 
+          src={isFavorited ? filledHeart : emptyHeart} 
+          alt='favorite and unfavorite news story'
+          onClick={toggleHeart}
+        />
         <button onClick={grabNews} className='spillAgain'>Spill it again..</button>
         <img className='viewSaved' src={saved} alt='view saved stories'/>
       </section>

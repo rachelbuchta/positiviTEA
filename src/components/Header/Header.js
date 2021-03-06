@@ -5,8 +5,8 @@ function Header({quote}) {
 
   return (
     <header>
-      <h3>{quote.content}</h3>
-      <h3>{quote.author}</h3>
+      <h3 className='quote'>{quote.content}</h3>
+      <h3 className='author'>{quote.author}</h3>
     </header>
   )
 }
