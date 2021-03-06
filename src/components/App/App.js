@@ -31,7 +31,7 @@ function App() {
   }
 
   const generateRandomNumber = () => {
-    return Math.floor(Math.random() * (20 - 1)) + 1
+    return Math.floor(Math.random() * (4 - 1)) + 1
   }
 
   return (
@@ -46,7 +46,7 @@ function App() {
         exact
         path='/story'
         render={() => 
-        <StoryPage grabNews={grabNews} quote={quote} news={news} />}
+          <StoryPage grabNews={grabNews} quote={quote} news={news} />}
       />
     </div>
   )
