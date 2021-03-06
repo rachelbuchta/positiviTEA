@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './StoryOfTheDay.css'
-import { Link } from 'react-router-dom'
 import emptyHeart from '../../assets/heart.png'
 import filledHeart from '../../assets/like.png'
 import saved from '../../assets/bookmark.png'
@@ -10,10 +9,21 @@ const [isFavorited, setIsFavorited] = useState(false)
 
 const toggleHeart = () => {
   setIsFavorited(isFavorited => !isFavorited)
+  const jsonNews = JSON.stringify(news)
+  if(localStorage.getItem(`${news.title}`) === null) {
+    localStorage.setItem(`${news.title}`, jsonNews)
+  }
+  if(isFavorited) {
+    localStorage.removeItem(`${news.title}`)
+  }
 }
 
+// useEffect(() => {
+//   console.log('render')
+// }, [isFavorited])
+
 const wholeStoryPopUp = () => {
-  window.open('_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+  window.open('_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
 }
 
   return (
@@ -29,12 +39,10 @@ const wholeStoryPopUp = () => {
           <p className='label'>Inspiring</p>
         </section>
         <section className='descriptionWrapper'>
-          {/* <span> */}
           <p className='description'>{news.description}</p>
           <a href={news.url} target="_blank">
             <button handleClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
           </a>
-          {/* </span> */}
         </section>
       </div>
       <section className='navBtns'>
