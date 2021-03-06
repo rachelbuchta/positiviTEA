@@ -26,7 +26,6 @@ const wholeStoryPopUp = () => {
         <a href={news.url} target="_blank">
           <button handleClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
         </a>
-        {/* </Link> */}
           </span>
         </section>
       </div>
