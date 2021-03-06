@@ -3,6 +3,7 @@ import './StoryOfTheDay.css'
 import emptyHeart from '../../assets/heart.png'
 import filledHeart from '../../assets/like.png'
 import saved from '../../assets/bookmark.png'
+import { Link } from 'react-router-dom'
 
 function StoryOfTheDay({news, grabNews}) {
 const [isFavorited, setIsFavorited] = useState(false)
@@ -57,7 +58,10 @@ const wholeStoryPopUp = () => {
           onClick={toggleHeart}
         />
         <button onClick={grabNews} className='spillAgain'>Spill it again..</button>
-        <img className='viewSaved' src={saved} alt='view saved stories'/>
+        < Link to='/favorite-stories'>
+          <img className='viewSaved' src={saved} alt='view saved stories'/>
+        </Link>
+
       </section>
     </article>
     // <article className='story'>

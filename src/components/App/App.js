@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
 import {fetchNews, fetchQuotes} from '../../utilities'
 import StoryPage from '../StoryPage/StoryPage'
+import FavoritedStories from '../FavoritedStories/FavoritedStories'
 
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
         path='/story'
         render={() => 
           <StoryPage grabNews={grabNews} quote={quote} news={news} />}
+      />
+      < Route
+        exact
+        path='/favorite-stories'
+        render={() => 
+          < FavoritedStories news={news} />}
       />
     </div>
   )
