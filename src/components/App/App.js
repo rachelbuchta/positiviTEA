@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
-import {fetchNews, fetchQuotes} from '../../utilities'
+import {fetchNews, fetchQuotes, generateRandomNumber, randomizeKeywords} from '../../utilities'
 import StoryPage from '../StoryPage/StoryPage'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
 import Header from '../Header/Header'
@@ -12,6 +12,7 @@ const App = () => {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
   const [landingPageView, setLandingPageView] = useState(true)
+  const [keyWord, setKeyWord] = useState('')
 
   const grabAllData = () => {
     fetchQuotes()
@@ -20,40 +21,34 @@ const App = () => {
         setQuote(response)
       })
       .then(grabNews())
-      
+      .then(setLandingPageView(false))
   }
 
   const grabNews = () => {
     fetchNews()
       .then(response => {
-        setNews(response.articles[generateRandomNumber()])
+        setNews(response.articles[generateRandomNumber(3)])
         console.log(news)
       })
       .then(setLandingPageView(false))
+      .then(setKeyWord(randomizeKeywords))
   }
 
-  const generateRandomNumber = () => {
-    return Math.floor(Math.random() * (4 - 1)) + 1
-  }
 
   return (
     <div className="App">
-      {/* <Switch> */}
-
-        {!news && <Redirect to='/' />}
         < Route 
           exact
           path='/'
           render={() => 
             <LandingPage grabAllData={grabAllData} />}
         />
-        <Header quote={quote}/>
+        <Header landingPageView={landingPageView} quote={quote}/>
         < Route 
           exact
           path='/story'
-          
           render={() => 
-            <StoryPage grabNews={grabNews} quote={quote} news={news} />}
+            <StoryPage grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />}
         />
         < Route
           exact
@@ -61,7 +56,6 @@ const App = () => {
           render={() => 
             <FavoritedStories />}
         />
-      {/* </Switch> */}
     </div>
   )
 }

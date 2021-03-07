@@ -2,9 +2,11 @@ import React from 'react'
 import './Header.css'
 import { NavLink } from 'react-router-dom'
 
-const Header = ({quote}) => {
+const Header = ({quote, landingPageView}) => {
 
   return (
+    <>
+    {!landingPageView &&
     <header>
       <div className='homeButton'>
         <NavLink className='link' to='/story'>
@@ -16,6 +18,8 @@ const Header = ({quote}) => {
         <h3 className='author'>-{quote.author}</h3>
       </div>
     </header>
+    }
+    </>
   )
 }
 

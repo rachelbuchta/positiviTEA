@@ -1,6 +1,8 @@
 .cardAndDelete {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 48%;
 }
 
 .card {
@@ -8,8 +10,8 @@
   flex-direction: column;
   height: 45%;
   width: 100%;
-
   align-content: center;
+  justify-content: flex-end;
 }
 
 .image {
@@ -19,21 +21,31 @@
   z-index: 1;
 }
 
-.image::after {
-  content:"";
-  position: relative;
-  opacity: 1%;
-  z-index: -1;
+.savedTitleWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: white;
+  opacity: 80%;
+  z-index: 2;
+  max-width: 94%;
+  height: auto;
+  font-size: 1.5em;
+  padding: 1%;
+
 }
 
 .savedTitle {
-  font-size: 2em;
-  color: white;
-  z-index: 2;
+  color: black;
+  z-index: 3;
 }
 
 .remove {
   width: 1em;
   justify-self: flex-start;
   margin: 1%;
+}
+
+.more {
+  text-decoration: none;
+  color: black;
 }

@@ -6,7 +6,7 @@ import saved from '../../assets/bookmark.png'
 import { Link, Redirect } from 'react-router-dom'
 import nullImage from '../../assets/unnamed.png'
 
-function StoryOfTheDay({news, grabNews}) {
+function StoryOfTheDay({news, grabNews, keyWord}) {
 const [isFavorited, setIsFavorited] = useState(false)
 const date = new Date(news.publishedAt)
 
@@ -47,7 +47,7 @@ useEffect(() => {
         </section>
         <section className='dateAndLabel'>
           <p className='date'>{date.toDateString()}</p>
-          <p className='label'>Inspiring</p>
+          <p className='label'>{`${keyWord}`}</p>
         </section>
         <section className='descriptionWrapper'>
           <p className='description'>{news.description}</p>
@@ -67,12 +67,10 @@ useEffect(() => {
         <Link to='/favorite-stories'>
           <img className='viewSaved' src={saved} alt='view saved stories'/>
         </Link>
-
       </section>
     </article>
     </>
   )
-
 }
 
 export default StoryOfTheDay
