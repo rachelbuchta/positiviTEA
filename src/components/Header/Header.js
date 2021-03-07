@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 
-function Header({quote}) {
+const Header = ({quote}) => {
 
   return (
     <header>

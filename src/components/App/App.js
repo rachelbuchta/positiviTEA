@@ -7,7 +7,7 @@ import StoryPage from '../StoryPage/StoryPage'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
 
 
-function App() {
+const App = () => {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
   const [landingPageView, setLandingPageView] = useState(true)

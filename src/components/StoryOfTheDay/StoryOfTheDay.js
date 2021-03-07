@@ -46,7 +46,7 @@ const wholeStoryPopUp = () => {
         <section className='descriptionWrapper'>
           <p className='description'>{news.description}</p>
           <a href={news.url} target="_blank">
-            <button handleClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
+            <button onClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
           </a>
         </section>
       </div>
