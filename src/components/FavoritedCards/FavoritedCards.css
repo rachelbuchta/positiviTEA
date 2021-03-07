@@ -1,19 +1,28 @@
 .card {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  border: 1px black solid;
-  justify-content: center;
+  justify-content: flex-end;
   align-content: center;
 }
 
 .image {
-  height: 60%;
-  width:60%;
-  /* position: absolute; */
+  height: 35%;
+  width: 45%;
+  position: absolute;
   z-index: 1;
 }
 
+.image::after {
+  content:"";
+  position: relative;
+  opacity: 1%;
+  z-index: -1;
+}
+
 .savedTitle {
-  color: blanchedalmond;
+  font-size: 2em;
+  color: white;
   z-index: 2;
 }

@@ -3,7 +3,8 @@
   grid-template-columns: 1fr 1fr;
   padding: 2%;
   justify-content: center;
-  align-content: center;
+
   grid-gap: 1em;
+  height: 80vh;
 
 }
