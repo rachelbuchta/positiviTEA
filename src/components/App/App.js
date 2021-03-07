@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
-import { Route } from 'react-router-dom'
+import { Route, Redirect, Switch } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
 import {fetchNews, fetchQuotes} from '../../utilities'
 import StoryPage from '../StoryPage/StoryPage'
@@ -38,25 +38,30 @@ const App = () => {
 
   return (
     <div className="App">
-      < Route 
-        exact
-        path='/'
-        render={() => 
-          <LandingPage grabAllData={grabAllData} />}
-      />
-      <Header quote={quote}/>
-      < Route 
-        exact
-        path='/story'
-        render={() => 
-          <StoryPage grabNews={grabNews} quote={quote} news={news} />}
-      />
-      < Route
-        exact
-        path='/favorite-stories'
-        render={() => 
-          <FavoritedStories />}
-      />
+      {/* <Switch> */}
+
+        {!news && <Redirect to='/' />}
+        < Route 
+          exact
+          path='/'
+          render={() => 
+            <LandingPage grabAllData={grabAllData} />}
+        />
+        <Header quote={quote}/>
+        < Route 
+          exact
+          path='/story'
+          
+          render={() => 
+            <StoryPage grabNews={grabNews} quote={quote} news={news} />}
+        />
+        < Route
+          exact
+          path='/favorite-stories'
+          render={() => 
+            <FavoritedStories />}
+        />
+      {/* </Switch> */}
     </div>
   )
 }

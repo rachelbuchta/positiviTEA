@@ -6,11 +6,15 @@ const Header = ({quote}) => {
 
   return (
     <header>
-      <NavLink to='/story'>
-        <p>positiviTEA.</p>
-      </NavLink>
+      <div className='homeButton'>
+        <NavLink className='link' to='/story'>
+          <p className='link'>positiviTEA.</p>
+        </NavLink>
+      </div>
+      <div className='quoteWrapper'>
         <h3 className='quote'>{quote.content}</h3>
-        <h3 className='author'>{quote.author}</h3>
+        <h3 className='author'>-{quote.author}</h3>
+      </div>
     </header>
   )
 }

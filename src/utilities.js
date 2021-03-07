@@ -9,7 +9,7 @@ export const fetchQuotes = () => {
 }
 
 export const fetchNews = () => {
-  return fetch('https://newsapi.org/v2/everything?q=wholesome&apiKey=38cf827884e446c4896980655d738a61')
+  return fetch('https://newsapi.org/v2/everything?q=mindfullness&apiKey=38cf827884e446c4896980655d738a61')
     .then(response => {
       return response.json()
     })

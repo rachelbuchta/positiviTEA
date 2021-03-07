@@ -12,7 +12,7 @@ function LandingPage({grabAllData}) {
         <h1 className='header'>positiviTEA.</h1>
         <img className='teacup' alt='teacup' src={teacup}/> 
         <p className='intro-text'>Get the tea on all things good and interesting happening in the world.</p>
-        < Link to='/story'>
+        <Link to='/story'>
           <button onClick={grabAllData} className='spill-button'>Spill it..</button>
         </Link>
       </main>

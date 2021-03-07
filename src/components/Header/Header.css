@@ -5,16 +5,37 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 2px black solid;
   background-image: url('../../assets/green-background.jpg');
   background-size: 100% 100%;
+  width:100vw;
 }
 
-.quote {
+.homeButton {
+  display: flex;
+  width: 95%;
+  height: 4vh;
+}
+
+.quoteWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  height: 13vh;
+  align-self: center;
   margin: 0;
-  width: 85%;
 }
 
+.quote,
 .author {
   margin: 0;
+  font-size: 1em;
+  width: 95%;
+  align-self: center;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
