@@ -1,0 +1,19 @@
+.card {
+  height: 100%;
+  width: 100%;
+  border: 1px black solid;
+  justify-content: center;
+  align-content: center;
+}
+
+.image {
+  height: 60%;
+  width:60%;
+  /* position: absolute; */
+  z-index: 1;
+}
+
+.savedTitle {
+  color: blanchedalmond;
+  z-index: 2;
+}

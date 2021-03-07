@@ -7,7 +7,6 @@ const FavoritedStories = () => {
   const [savedStories, setSavedStories] = useState({})
   console.log(savedStories)
  
-
   const getLocalStorage = () => {
     const storageKeys = Object.keys(localStorage)
     return storageKeys.map(item => {
