@@ -11,9 +11,9 @@
 .contentWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
-  height: 65vh;
+  height: 66vh;
   width: 80vw;
 }
 
@@ -27,8 +27,8 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 55%;
-  justify-content: start;
+  height: 60%;
+  justify-content: flex-end;
   width: 80vw;
 }
 
@@ -39,9 +39,21 @@
   z-index: 1;
 }
 
-.storyTitle {
-  color:blanchedalmond;
+.titleWrapper {
   z-index: 2;
+  background-color: white;
+  opacity: 80%;
+  max-width: 70%;
+  height: auto;
+  font-size: 1.5em;
+  padding: 1%;
+}
+
+.storyTitle {
+  color:black;
+  z-index: 3;
+
+      
 }
 
 .dateAndLabel {
@@ -115,4 +127,9 @@ span {
   color: white;
   height: 45%;
   padding: .9%;
+  margin: 0;
+}
+
+.date {
+  margin: 0;
 }

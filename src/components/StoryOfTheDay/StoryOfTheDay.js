@@ -4,6 +4,7 @@ import emptyHeart from '../../assets/heart.png'
 import filledHeart from '../../assets/like.png'
 import saved from '../../assets/bookmark.png'
 import { Link, Redirect } from 'react-router-dom'
+import nullImage from '../../assets/unnamed.png'
 
 function StoryOfTheDay({news, grabNews}) {
 const [isFavorited, setIsFavorited] = useState(false)
@@ -28,10 +29,6 @@ useEffect(() => {
   }
 }, [news])
 
-// const wholeStoryPopUp = () => {
-//   window.open(`${news.url}`,'location=yes,height=570,width=520,scrollbars=yes,status=yes')
-// }
-
   return (
     <>
     {!Object.keys(news).length && <Redirect to='/'/> }
@@ -39,8 +36,14 @@ useEffect(() => {
       <h2 className='sod'>Story Of The Day</h2>
       <div className='contentWrapper'>
         <section className='imgWrapper'>
-          <img className='newsImage' src={news.urlToImage}/>
-          <p className='storyTitle'>{news.title}</p>
+          {news.urlToImage === null ? 
+          <img className='newsImage' src={nullImage} alt='image not available'/>
+          :
+          <img className='newsImage' src={news.urlToImage} alt='news story image'/>
+          }
+          <div className='titleWrapper'>
+            <p className='storyTitle'>{news.title}</p>
+          </div>
         </section>
         <section className='dateAndLabel'>
           <p className='date'>{date.toDateString()}</p>
