@@ -5,6 +5,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import {fetchNews, fetchQuotes} from '../../utilities'
 import StoryPage from '../StoryPage/StoryPage'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
+import Header from '../Header/Header'
 
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
         render={() => 
           <LandingPage grabAllData={grabAllData} />}
       />
+      <Header quote={quote}/>
       < Route 
         exact
         path='/story'

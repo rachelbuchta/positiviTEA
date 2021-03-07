@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 function StoryOfTheDay({news, grabNews}) {
 const [isFavorited, setIsFavorited] = useState(false)
+const date = new Date(news.publishedAt)
 
 const toggleHeart = () => {
   setIsFavorited(isFavorited => !isFavorited)
@@ -40,7 +41,7 @@ const wholeStoryPopUp = () => {
           <p className='storyTitle'>{news.title}</p>
         </section>
         <section className='dateAndLabel'>
-          <p className='date'>{news.publishedAt}</p>
+          <p className='date'>{date.toDateString()}</p>
           <p className='label'>Inspiring</p>
         </section>
         <section className='descriptionWrapper'>

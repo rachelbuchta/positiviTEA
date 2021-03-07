@@ -7,7 +7,7 @@ function StoryPage({quote, news, grabNews}) {
 
   return (
     <>
-      <Header quote={quote}/>
+      {/* <Header quote={quote}/> */}
       <StoryOfTheDay grabNews={grabNews} news={news}/>
     </>
   )

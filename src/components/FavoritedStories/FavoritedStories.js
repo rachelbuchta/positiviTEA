@@ -43,9 +43,6 @@ const FavoritedStories = () => {
 
   return (
     <>
-      <header>
-        <h1>Favorite Stories</h1>
-      </header>
       <section className='favorite-section'>
         {createSavedCards()}
       </section>
