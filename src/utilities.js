@@ -9,7 +9,7 @@ export const fetchQuotes = () => {
 }
 
 export const fetchNews = () => {
-  return fetch('https://newsapi.org/v2/everything?q=wholesome&apiKey=38cf827884e446c4896980655d738a61')
+  return fetch(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomizeKeywords()}&apiKey=38cf827884e446c4896980655d738a61`)
     .then(response => {
       return response.json()
     })
@@ -17,4 +17,16 @@ export const fetchNews = () => {
       console.log(error)
     })
 }
+
+export const randomizeKeywords = () => {
+  const keyWords = ['mindfulness', 'science', 'innovation', 'funny', 'national geographic', 'optimistic', 'social justice', 'art', 'technology', 'kindness', 'sustainability', 'space', 'diversity']
+  const chosenKeyword = generateRandomNumber(10)
+  console.log(keyWords[chosenKeyword])
+  return keyWords[chosenKeyword]
+}
+
+export const generateRandomNumber = (num) => {
+    return Math.floor(Math.random() * (num - 1)) + 1
+  }
+
 
