@@ -28,7 +28,7 @@ useEffect(() => {
 }, [news])
 
 const wholeStoryPopUp = () => {
-  window.open('_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
+  window.open(`${news.url}`,'location=yes,height=570,width=520,scrollbars=yes,status=yes')
 }
 
   return (
@@ -46,7 +46,7 @@ const wholeStoryPopUp = () => {
         <section className='descriptionWrapper'>
           <p className='description'>{news.description}</p>
           <a href={news.url} target="_blank">
-            <button onClick={wholeStoryPopUp} className='viewMore'>See Full Story</button>
+            <button onClick={()=>wholeStoryPopUp()} className='viewMore'>See Full Story</button>
           </a>
         </section>
       </div>

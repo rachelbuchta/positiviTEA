@@ -53,7 +53,7 @@ const App = () => {
         exact
         path='/favorite-stories'
         render={() => 
-          < FavoritedStories news={news} />}
+          <FavoritedStories />}
       />
     </div>
   )
