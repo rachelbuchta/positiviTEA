@@ -5,19 +5,33 @@ import FavoritedCards from '../FavoritedCards/FavoritedCards'
 
 const FavoritedStories = () => {
   const [savedStories, setSavedStories] = useState({})
+  console.log(savedStories)
+ 
 
   const getLocalStorage = () => {
     const storageKeys = Object.keys(localStorage)
-    const localStories = storageKeys.map(item => {
+    return storageKeys.map(item => {
       return JSON.parse(localStorage.getItem(item))
     })
-    setSavedStories(localStories)
   }
 
   useEffect(() => {
-    getLocalStorage()
+    setSavedStories(getLocalStorage())
   },[])
 
+  const createSavedCards = () => {
+    const stories = getLocalStorage()
+    return stories.map((story, index) => {
+      return (
+        < FavoritedCards 
+          title={story.title}
+          image={story.urlToImage}
+          url={story.url}
+          key={index}
+        />
+      )
+    })
+  }
 
   return (
     <>
@@ -25,6 +39,7 @@ const FavoritedStories = () => {
         <h1>Favorite Stories</h1>
       </header>
       <section className='favorite-section'>
+        {createSavedCards()}
       </section>
     </>
   )
