@@ -17,7 +17,6 @@ const App = () => {
   const grabAllData = () => {
     fetchQuotes()
       .then(response => {
-        console.log(response)
         setQuote(response)
       })
       .then(grabNews())
@@ -28,12 +27,10 @@ const App = () => {
     fetchNews()
       .then(response => {
         setNews(response.articles[generateRandomNumber(3)])
-        console.log(news)
       })
       .then(setLandingPageView(false))
       .then(setKeyWord(randomizeKeywords))
   }
-
 
   return (
     <div className="App">

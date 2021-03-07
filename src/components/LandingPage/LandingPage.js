@@ -3,10 +3,7 @@ import './LandingPage.css'
 import teacup from '../../assets/tea.svg'
 import { Link } from 'react-router-dom'
 
-
-
 function LandingPage({grabAllData}) {
-
   return (
       <main>
         <h1 className='header'>positiviTEA.</h1>
