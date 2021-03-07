@@ -2,10 +2,10 @@ import React from 'react'
 import './FavoritedCards.css'
 import remove from '../../assets/cancel.png'
 
-const FavoritedCards = ({title, image, url}) => {
+const FavoritedCards = ({title, image, url, id, deleteFromStorage}) => {
   return (
     <section className='cardAndDelete'>
-      <img className='remove' src={remove} alt='delete story' />
+      <img onClick={deleteFromStorage} className='remove' src={remove} id={id} alt='delete story' />
       <article className='card'>
         <p className='savedTitle'>{title}</p>
         <img className='image' src={image}/>
