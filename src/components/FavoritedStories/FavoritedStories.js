@@ -46,7 +46,10 @@ const FavoritedStories = () => {
     <h2 className='fave-header'>Saved Stories</h2>
     <div className='favorites-wrapper'>
       <section className='favorite-section'>
-      {createSavedCards()}
+        {Object.keys(localStorage).length === 0 && 
+        <h2>You haven't saved any stories, yet!</h2> 
+        }
+        {createSavedCards()}
       </section>
     </div>
     </>
