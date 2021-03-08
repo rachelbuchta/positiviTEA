@@ -1,5 +1,3 @@
-{
-  "newsStories":
   {
     "status": "ok",
     "totalResults": 16342,
@@ -31,13 +29,5 @@
         "content": "Tech companies are no stranger to controversy and workplace issues. Over the years, it’s become clear that no company is immune from diversity issues. But it’s the job of those in the diversity, equi… [+3085 chars]"
       }
     ]
-  },
-  "quote": 
-    {
-      "_id":"jeB48pbKLwjx",
-      "tags":["famous-quotes","inspirational"],
-      "content":"In the middle of every difficulty lies opportunity.",
-      "author":"Albert Einstein",
-      "length":51
-    }
-}
+  }
+
