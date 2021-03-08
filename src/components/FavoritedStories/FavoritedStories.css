@@ -25,3 +25,10 @@
   margin: 0;
   height: 3%;
 }
+
+.msgLink {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefae0;
+  justify-content: center;
+}

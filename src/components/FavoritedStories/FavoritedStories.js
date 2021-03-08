@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './FavoritedStories.css'
 import Header from '../Header/Header'
+import { Link } from 'react-router-dom'
 import FavoritedCards from '../FavoritedCards/FavoritedCards'
 
 const FavoritedStories = () => {
@@ -44,11 +45,13 @@ const FavoritedStories = () => {
   return (
     <>
     <h2 className='fave-header'>Saved Stories</h2>
+        {Object.keys(localStorage).length === 0 && 
+        <Link className='msgLink' to='/story'>
+          <h2>You haven't saved any stories, yet!</h2> 
+        </Link>
+        }
     <div className='favorites-wrapper'>
       <section className='favorite-section'>
-        {Object.keys(localStorage).length === 0 && 
-        <h2>You haven't saved any stories, yet!</h2> 
-        }
         {createSavedCards()}
       </section>
     </div>

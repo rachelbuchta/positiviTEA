@@ -1,5 +1,5 @@
 header {
-  font-size: 1em;
+  font-size: 1.1em;
   height: 17vh;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ header {
 .homeButton {
   display: flex;
   width: 95%;
-  height: 4vh;
+  height: 5vh;
 }
 
 .quoteWrapper {
@@ -29,13 +29,23 @@ header {
 .quote,
 .author {
   margin: 0;
-  font-size: 1em;
+  font-size: .9em;
   width: 95%;
   align-self: center;
 }
 
 .link {
+  background: linear-gradient(to bottom, #E1BDFC 0%, #E1BDFC 100%);
+  background-repeat: repeat-x;
+  background-size: 0px 0px;
+  color: #000;
   text-decoration: none;
-  color: black;
-}
+  transition: background-size .2s;
+  }
+
+  .link:hover {
+    background-size: 50px 50px;
+    text-decoration:white;
+  }
+
 

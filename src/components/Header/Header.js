@@ -10,7 +10,7 @@ const Header = ({quote, landingPageView}) => {
     <header>
       <div className='homeButton'>
         <NavLink className='link' to='/story'>
-          <p className='link'>positiviTEA.</p>
+          <p className='text'>positiviTEA.</p>
         </NavLink>
       </div>
       <div className='quoteWrapper'>
