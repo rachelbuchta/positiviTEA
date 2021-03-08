@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const Header = ({quote, landingPageView}) => {
 
@@ -24,3 +25,8 @@ const Header = ({quote, landingPageView}) => {
 }
 
 export default Header
+
+Header.propTypes = {
+  quote: PropTypes.object,
+  landingPageView: PropTypes.bool
+}

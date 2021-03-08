@@ -5,7 +5,7 @@ import filledHeart from '../../assets/like.png'
 import saved from '../../assets/bookmark.png'
 import { Link, Redirect } from 'react-router-dom'
 import nullImage from '../../assets/unnamed.png'
-import {generateRandomNumber} from '../../utilities'
+import PropTypes from 'prop-types'
 
 function StoryOfTheDay({news, grabNews, keyWord}) {
 const [isFavorited, setIsFavorited] = useState(false)
@@ -38,9 +38,9 @@ useEffect(() => {
       <div className='contentWrapper'>
         <section className='imgWrapper'>
           {news.urlToImage === null ? 
-          <img className='newsImage' src={nullImage} alt='image not available'/>
+          <img className='newsImage' src={nullImage} alt='not available'/>
           :
-          <img className='newsImage' src={news.urlToImage} alt='news story image'/>
+          <img className='newsImage' src={news.urlToImage} alt='news story'/>
           }
           <div className='titleWrapper'>
             <p className='storyTitle'>{news.title}</p>
@@ -75,3 +75,9 @@ useEffect(() => {
 }
 
 export default StoryOfTheDay
+
+StoryOfTheDay.propTypes = {
+  news: PropTypes.object,
+  grabNews: PropTypes.func,
+  keyWord: PropTypes.string
+}

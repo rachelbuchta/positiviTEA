@@ -2,6 +2,7 @@ import React from 'react'
 import './LandingPage.css'
 import teacup from '../../assets/tea.svg'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function LandingPage({grabAllData}) {
   return (
@@ -17,3 +18,7 @@ function LandingPage({grabAllData}) {
 }
 
 export default LandingPage
+
+LandingPage.propTypes = {
+  grabAllData: PropTypes.func
+}

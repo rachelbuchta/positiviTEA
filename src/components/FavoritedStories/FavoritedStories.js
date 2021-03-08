@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './FavoritedStories.css'
-import Header from '../Header/Header'
 import FavoritedCards from '../FavoritedCards/FavoritedCards'
 
 const FavoritedStories = () => {
