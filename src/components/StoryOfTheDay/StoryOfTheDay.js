@@ -7,7 +7,7 @@ import { Link, Redirect } from 'react-router-dom'
 import nullImage from '../../assets/unnamed.png'
 import PropTypes from 'prop-types'
 
-function StoryOfTheDay({news, grabNews, keyWord}) {
+function StoryOfTheDay({news, grabNews, keyWord, loading}) {
 const [isFavorited, setIsFavorited] = useState(false)
 const date = new Date(news.publishedAt)
 
@@ -33,6 +33,7 @@ useEffect(() => {
   return (
     <>
     {!Object.keys(news).length && <Redirect to='/'/> }
+    {loading ? <h2 className='loading'>Keep on Keepin on..</h2> :
     <article className='story'>
       <h2 className='sod'>Story Of The Day</h2>
       <div className='contentWrapper'>
@@ -70,6 +71,7 @@ useEffect(() => {
         </Link>
       </section>
     </article>
+    } 
     </>
   )
 }
@@ -79,5 +81,6 @@ export default StoryOfTheDay
 StoryOfTheDay.propTypes = {
   news: PropTypes.object,
   grabNews: PropTypes.func,
-  keyWord: PropTypes.string
+  keyWord: PropTypes.string,
+  loading: PropTypes.bool
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './FavoritedStories.css'
 import FavoritedCards from '../FavoritedCards/FavoritedCards'
+import PropTypes from 'prop-types'
 
-const FavoritedStories = () => {
+const FavoritedStories = ({loading}) => {
   const [savedStories, setSavedStories] = useState({})
  
   const getLocalStorage = () => {
@@ -42,11 +43,17 @@ const FavoritedStories = () => {
 
   return (
     <>
+      {loading ? <h2>Keep on Keepin on..</h2> :
       <section className='favorite-section'>
         {createSavedCards()}
       </section>
+      }
     </>
   )
 }
 
 export default FavoritedStories
+
+FavoritedCards.propTypes = {
+  loading: PropTypes.bool,
+}

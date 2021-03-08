@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   background-color: #fefae0;
-
 }
 
 .contentWrapper {
@@ -128,4 +127,9 @@ span {
 
 .date {
   margin: 0;
+}
+
+.loading {
+  background-color: #fefae0;
+  height: 100vh;
 }

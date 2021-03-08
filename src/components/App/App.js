@@ -13,7 +13,8 @@ const App = () => {
   const [news, setNews] = useState({})
   const [landingPageView, setLandingPageView] = useState(true)
   const [keyWord, setKeyWord] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   // const grabAllData = () => {
     // fetchQuotes()
@@ -25,6 +26,7 @@ const App = () => {
   // }
 
   const grabAllData = () => {
+    setLoading(true)
     let randomKeyWord = randomizeKeywords()
     let randomNumber = generateRandomNumber(3)
     return Promise.all([
@@ -38,11 +40,16 @@ const App = () => {
         setQuote(responses[0])
         setNews(responses[1].articles[randomNumber])
         setKeyWord(randomKeyWord)
+        setLoading(false)
+        setLandingPageView(false)
       })
-      .then(setLandingPageView(false))
+      .catch(error => {
+        setError(error.message)
+      })
   }
 
   const grabNews = () => {
+    setLoading(true)
     // setLandingPageView(true)
     const randomKeyWord = randomizeKeywords()
     const randomNumber = generateRandomNumber(3)
@@ -51,8 +58,12 @@ const App = () => {
       .then(response => {
         setNews(response.articles[randomNumber])
         setKeyWord(randomKeyWord)
+        setLoading(false)
+        setLandingPageView(false)
       })
-      .then(setLandingPageView(false))
+      .catch(error => {
+        setError(error.message)
+      })
   }
 
   useEffect(() => {
@@ -68,20 +79,22 @@ const App = () => {
             <LandingPage grabAllData={grabAllData} />}
         />
         <Header landingPageView={landingPageView} quote={quote}/>
+          
         < Route 
           exact
           path='/story'
           render={() => 
-            <StoryOfTheDay grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />}
+            <StoryOfTheDay loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />}
         />
         < Route
           exact
           path='/favorite-stories'
           render={() => 
-            <FavoritedStories />}
+            <FavoritedStories loading={loading}/>}
         />
     </div>
   )
 }
 
 export default App
+
