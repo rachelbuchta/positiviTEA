@@ -43,9 +43,12 @@ const FavoritedStories = () => {
 
   return (
     <>
+    <h2 className='fave-header'>Saved Stories</h2>
+    <div className='favorites-wrapper'>
       <section className='favorite-section'>
-        {createSavedCards()}
+      {createSavedCards()}
       </section>
+    </div>
     </>
   )
 }

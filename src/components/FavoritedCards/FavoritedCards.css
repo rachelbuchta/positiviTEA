@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 48%;
+  height: 100%;
 }
 
 .card {
@@ -15,7 +15,7 @@
 }
 
 .image {
-  height: 35%;
+  height: 40%;
   width: 45%;
   position: absolute;
   z-index: 1;
@@ -23,15 +23,14 @@
 
 .savedTitleWrapper {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   background-color: white;
   opacity: 80%;
-  z-index: 2;
-  max-width: 94%;
-  height: auto;
-  font-size: 1.5em;
+  z-index: 2; 
+  max-width: fit-content;
+  height: 75%;
+  font-size: 1.2em;
   padding: 1%;
-
 }
 
 .savedTitle {
