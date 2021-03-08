@@ -7,7 +7,6 @@ const Header = ({quote}) => {
 
   return (
     <>
- 
     <header>
       <div className='homeButton'>
         <NavLink className='link' to='/story'>
@@ -19,7 +18,6 @@ const Header = ({quote}) => {
         <h3 className='author'>-{quote.author}</h3>
       </div>
     </header>
-    
     </>
   )
 }

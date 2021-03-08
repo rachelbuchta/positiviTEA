@@ -33,7 +33,6 @@ useEffect(() => {
 
   return (
     <>
-    < Header quote={quote}/>
     {!Object.keys(news).length && <Redirect to='/'/> }
     {loading ? <h2 className='loading'>Keep on Keepin on..</h2> :
     <article className='story'>

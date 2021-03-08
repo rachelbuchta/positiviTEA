@@ -11,29 +11,17 @@ import Header from '../Header/Header'
 const App = () => {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
-  const [headerView, setHeaderView] = useState(false)
-  const [landingPageView, setLandingPageView] = useState(true)
   const [keyWord, setKeyWord] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  // const grabAllData = () => {
-    // fetchQuotes()
-    //   .then(response => {
-    //     setQuote(response)
-    //   })
-    //   .then(grabNews())
-    //   .then(setLandingPageView(false))
-  // }
-
   const grabAllData = () => {
     setLoading(true)
-    setLandingPageView(true)
     let randomKeyWord = randomizeKeywords()
     let randomNumber = generateRandomNumber(3)
     return Promise.all([
       fetchData('https://api.quotable.io/random?maxLength=140&tags=inspirational'),
-      fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=79cb50e2f48048a6818802a4a6f1b6fd`)
+      fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`)
       ])
       .then(responses => {
         return Promise.all(responses.map(response => response.json()))
@@ -43,8 +31,6 @@ const App = () => {
         setNews(responses[1].articles[randomNumber])
         setKeyWord(randomKeyWord)
         setLoading(false)
-        setLandingPageView(true)
-   
       })
       .catch(error => {
         setError(error.message)
@@ -52,17 +38,16 @@ const App = () => {
   }
 
   const grabNews = () => {
-    // setLandingPageView(true)
     setLoading(true)
     const randomKeyWord = randomizeKeywords()
     const randomNumber = generateRandomNumber(3)
-    fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=79cb50e2f48048a6818802a4a6f1b6fd`)
+    fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`)
       .then(response => response.json())
       .then(response => {
         setNews(response.articles[randomNumber])
         setKeyWord(randomKeyWord)
         setLoading(false)
-        
+        setLandingPageView(false)
       })
       .catch(error => {
         setError(error.message)
@@ -71,7 +56,6 @@ const App = () => {
 
   useEffect(() => {
     grabAllData()
-  
   },[])
 
   return (
@@ -81,23 +65,30 @@ const App = () => {
           path='/'
           render={() => 
             <LandingPage grabAllData={grabAllData} />}
-        />
- 
-        {/* <Header landingPageView={landingPageView} quote={quote}/> */}
-     
-        {/* <Header quote={quote}/> */}
-        
+        />      
         < Route 
           exact
           path='/story'
-          render={() =>
-            <StoryOfTheDay loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />}
+          render={() => { 
+            return (
+            <>
+              <Header quote={quote} />
+              <StoryOfTheDay loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />
+            </>
+            )}
+          }
         />
         < Route
           exact
           path='/favorite-stories'
-          render={() => 
-            <FavoritedStories loading={loading}/>}
+          render={() => {
+            return (
+              <>
+                <Header quote={quote}/>
+                <FavoritedStories landingPageView={landingPageView} loading={loading}/>
+              </>
+            )}
+          }
         />
     </div>
   )
