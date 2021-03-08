@@ -12,7 +12,7 @@ describe('positiviTEA. Landing Page', () => {
   })
 })
 
-describe('positiviTEA. Story of the Day Page', () => {
+describe.only('positiviTEA. Story of the Day Page', () => {
   before(() => {
     cy.visit('http://localhost:3000')
       cy.fixture('quoteData.json')
@@ -26,12 +26,110 @@ describe('positiviTEA. Story of the Day Page', () => {
       cy.fixture('mockData.json')
         .then((news) => {
           console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=mindfulness&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=science&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=innovation&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=funny&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=nationalgeographic&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=optimistic&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=soicaljustice&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=art&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=technology&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=kindness&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=sustainability&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
+          cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=space&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
+            statusCode: 201,
+            body: news.articles[0]
+          })
+        })
+      cy.fixture('mockData.json')
+        .then((news) => {
+          console.log(news.articles[0])
           cy.intercept('GET', `https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=diversity&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`, {
             statusCode: 201,
-            body: news.articles
-     })
+            body: news.articles[0]
+          })
+        })
+  // cy
+  //   .get('main').find('.spill-button').should('contain', 'Spill it..').click()
   })
-})
 
   it('Should be able to click spill button and be navigated to story of the day page with a header, main content section and nav buttons', () => {
     cy
@@ -113,6 +211,7 @@ describe('positiviTEA. Story of the Day Page', () => {
   })
 })
 
+
 describe('positiviTEA. Favorites Page', () => {
   before(() => {
     cy.visit('http://localhost:3000')
@@ -120,7 +219,7 @@ describe('positiviTEA. Favorites Page', () => {
       .get('.story').find('.viewSaved').click()
     cy.url().should('include', 'favorite-stories')
   })
-  
+
   it('Should contain stories a user has saved', () => {
     cy
       .get('.favorite-section').children('.cardAndDelete').should('have.length', 1)

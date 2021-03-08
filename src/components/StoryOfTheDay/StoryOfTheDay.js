@@ -5,6 +5,7 @@ import filledHeart from '../../assets/like.png'
 import saved from '../../assets/bookmark.png'
 import { Link, Redirect } from 'react-router-dom'
 import nullImage from '../../assets/unnamed.png'
+import {generateRandomNumber} from '../../utilities'
 
 function StoryOfTheDay({news, grabNews, keyWord}) {
 const [isFavorited, setIsFavorited] = useState(false)
@@ -63,7 +64,7 @@ useEffect(() => {
           alt='favorite and unfavorite news story'
           onClick={toggleHeart}
         />
-        <button onClick={grabNews} className='spillAgain'>Spill it again..</button>
+        <button onClick={()=>grabNews()} className='spillAgain'>Spill it again..</button>
         <Link to='/favorite-stories'>
           <img className='viewSaved' src={saved} alt='view saved stories'/>
         </Link>

@@ -6,7 +6,7 @@ const Header = ({quote, landingPageView}) => {
 
   return (
     <>
-    {!landingPageView &&
+    {/* {!landingPageView && */}
     <header>
       <div className='homeButton'>
         <NavLink className='link' to='/story'>
@@ -18,7 +18,7 @@ const Header = ({quote, landingPageView}) => {
         <h3 className='author'>-{quote.author}</h3>
       </div>
     </header>
-    }
+    {/* } */}
     </>
   )
 }

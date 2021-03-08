@@ -10,7 +10,7 @@ function LandingPage({grabAllData}) {
         <img className='teacup' alt='teacup' src={teacup}/> 
         <p className='intro-text'>Get the tea on all things good and interesting happening in the world.</p>
         <Link to='/story'>
-          <button onClick={grabAllData} className='spill-button'>Spill it..</button>
+          <button onClick={(event)=>grabAllData(event)} className='spill-button'>Spill it..</button>
         </Link>
       </main>
   )
