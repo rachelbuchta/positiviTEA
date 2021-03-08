@@ -111,7 +111,35 @@ describe('positiviTEA. Story of the Day Page', () => {
       .get('.story').find('.viewSaved').click()
     cy.url().should('include', 'favorite-stories')
   })
+})
 
+describe('positiviTEA. Favorites Page', () => {
+  before(() => {
+    cy.visit('http://localhost:3000')
+    cy
+      .get('.story').find('.viewSaved').click()
+    cy.url().should('include', 'favorite-stories')
+  })
+  
+  it('Should contain stories a user has saved', () => {
+    cy
+      .get('.favorite-section').children('.cardAndDelete').should('have.length', 1)
+    cy
+      .get('.favorite-section').find('.card').children('.savedTitle').should('contain', 'Scientists sequence 64 human genomes to better reflect genetic diversity')
+  })
+
+  it('Should be able to see full article in a new tab in the browser', () => {
+    cy
+      .get('.favorite-section').find('.more').click()
+    cy.visit('https://www.engadget.com/sequence-64-human-genomes-genetic-diversity-195605887.html')
+  })
+
+  it('Should be able to delete a favorite from favorites page', () => {
+    cy
+      .get('.favorite-section').find('.remove').click()
+    cy
+      .get('.favorite-section').children('.cardAndDelete').should('have.length', 0)
+  })
 })
 
 
