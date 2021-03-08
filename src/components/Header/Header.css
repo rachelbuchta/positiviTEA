@@ -50,4 +50,11 @@ header {
     text-decoration:white;
   }
 
+@media screen and (max-width: 525px) {
+  .quote {
+    font-size: .85em;
+  }
+
+}
+
 
