@@ -11,6 +11,7 @@ import Header from '../Header/Header'
 const App = () => {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
+  const [headerView, setHeaderView] = useState(false)
   const [landingPageView, setLandingPageView] = useState(true)
   const [keyWord, setKeyWord] = useState('')
   const [loading, setLoading] = useState(false)
@@ -27,6 +28,7 @@ const App = () => {
 
   const grabAllData = () => {
     setLoading(true)
+    setLandingPageView(true)
     let randomKeyWord = randomizeKeywords()
     let randomNumber = generateRandomNumber(3)
     return Promise.all([
@@ -41,7 +43,8 @@ const App = () => {
         setNews(responses[1].articles[randomNumber])
         setKeyWord(randomKeyWord)
         setLoading(false)
-        setLandingPageView(false)
+        setLandingPageView(true)
+   
       })
       .catch(error => {
         setError(error.message)
@@ -49,8 +52,8 @@ const App = () => {
   }
 
   const grabNews = () => {
-    setLoading(true)
     // setLandingPageView(true)
+    setLoading(true)
     const randomKeyWord = randomizeKeywords()
     const randomNumber = generateRandomNumber(3)
     fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=79cb50e2f48048a6818802a4a6f1b6fd`)
@@ -59,7 +62,7 @@ const App = () => {
         setNews(response.articles[randomNumber])
         setKeyWord(randomKeyWord)
         setLoading(false)
-        setLandingPageView(false)
+        
       })
       .catch(error => {
         setError(error.message)
@@ -68,6 +71,7 @@ const App = () => {
 
   useEffect(() => {
     grabAllData()
+  
   },[])
 
   return (
@@ -78,12 +82,15 @@ const App = () => {
           render={() => 
             <LandingPage grabAllData={grabAllData} />}
         />
-        <Header landingPageView={landingPageView} quote={quote}/>
-          
+ 
+        {/* <Header landingPageView={landingPageView} quote={quote}/> */}
+     
+        {/* <Header quote={quote}/> */}
+        
         < Route 
           exact
           path='/story'
-          render={() => 
+          render={() =>
             <StoryOfTheDay loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />}
         />
         < Route
