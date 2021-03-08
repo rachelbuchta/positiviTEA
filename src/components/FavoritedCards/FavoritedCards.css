@@ -21,22 +21,41 @@
   z-index: 1;
 }
 
+
 .savedTitleWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   opacity: 80%;
   z-index: 2; 
-  max-width: fit-content;
-  height: 75%;
+  /* width: 100%; */
+  height: 80%;
   font-size: 1.2em;
   padding: 1%;
 }
+  
+
 
 .savedTitle {
+  height: fit-content;
   color: black;
   z-index: 3;
+  width: 100%;
+  background: linear-gradient(to bottom, #E1BDFC 0%, #E1BDFC 100%);
+  background-repeat: repeat-x;
+  background-size: 0px 0px;
+  color: #000;
+  text-decoration: none;
+  transition: background-size .2s;
 }
+
+    .savedTitle:hover {
+      background-size: 100px 100px;
+      /* text-decoration: white; */
+    }
+
 
 .remove {
   width: 1em;

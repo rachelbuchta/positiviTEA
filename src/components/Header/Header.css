@@ -30,9 +30,11 @@ header {
 .author {
   margin: 0;
   font-size: .9em;
-  width: 95%;
+  width: 85%;
   align-self: center;
 }
+
+
 
 .link {
   background: linear-gradient(to bottom, #E1BDFC 0%, #E1BDFC 100%);
