@@ -1,11 +1,5 @@
 export const fetchData = (url) => {
   return fetch(url)
-    // .then(response => {
-    //   return response.json()
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // })
 }
 
 export const randomizeKeywords = () => {

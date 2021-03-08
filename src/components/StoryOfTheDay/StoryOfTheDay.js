@@ -6,9 +6,8 @@ import saved from '../../assets/bookmark.png'
 import { Link, Redirect } from 'react-router-dom'
 import nullImage from '../../assets/unnamed.png'
 import PropTypes from 'prop-types'
-import Header from '../Header/Header'
 
-function StoryOfTheDay({news, grabNews, keyWord, loading, quote}) {
+function StoryOfTheDay({news, grabNews, keyWord, loading}) {
 const [isFavorited, setIsFavorited] = useState(false)
 const date = new Date(news.publishedAt)
 

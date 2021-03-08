@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './FavoritedStories.css'
 import FavoritedCards from '../FavoritedCards/FavoritedCards'
 import PropTypes from 'prop-types'
-import Header from '../Header/Header'
 
-const FavoritedStories = ({loading, landingPageView, quote}) => {
+const FavoritedStories = ({loading}) => {
   const [savedStories, setSavedStories] = useState({})
  
   const getLocalStorage = () => {
@@ -56,6 +55,5 @@ const FavoritedStories = ({loading, landingPageView, quote}) => {
 export default FavoritedStories
 
 FavoritedCards.propTypes = {
-  loading: PropTypes.bool,
-  quote: PropTypes.object
+  loading: PropTypes.bool
 }

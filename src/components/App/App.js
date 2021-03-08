@@ -7,7 +7,6 @@ import StoryOfTheDay from '../StoryOfTheDay/StoryOfTheDay'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
 import Header from '../Header/Header'
 
-
 const App = () => {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
@@ -47,7 +46,6 @@ const App = () => {
         setNews(response.articles[randomNumber])
         setKeyWord(randomKeyWord)
         setLoading(false)
-        setLandingPageView(false)
       })
       .catch(error => {
         setError(error.message)
@@ -85,7 +83,7 @@ const App = () => {
             return (
               <>
                 <Header quote={quote}/>
-                <FavoritedStories landingPageView={landingPageView} loading={loading}/>
+                <FavoritedStories  loading={loading}/>
               </>
             )}
           }
