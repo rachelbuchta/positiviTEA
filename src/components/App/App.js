@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
-import {fetchData, generateRandomNumber, randomizeKeywords, errorMessage} from '../../utilities'
+import {fetchData, randomizeKeywords, errorMessage, quotePath, newsPath} from '../../utilities'
 import StoryOfTheDay from '../StoryOfTheDay/StoryOfTheDay'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
 import Header from '../Header/Header'
@@ -18,9 +18,9 @@ const App = () => {
     setLoading(true)
     let randomKeyWord = randomizeKeywords()
     return Promise.all([
-      fetchData('https://api.quotable.io/random?maxLength=120&tags=inspirational'),
-      fetchData(`https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
-      ])
+      fetchData(quotePath()),
+      fetchData(newsPath(randomKeyWord))
+    ])
       .then(responses => {
         return Promise.all(responses.map(response => response.json()))
       })
@@ -39,7 +39,7 @@ const App = () => {
   const grabNews = () => {
     setLoading(true)
     const randomKeyWord = randomizeKeywords()
-    fetchData(`https://newsapi.org/v2/everything?q=${keyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
+    fetchData(newsPath(randomKeyWord))
       .then(response => response.json())
       .then(response => {
         setNews(response.articles[1])
@@ -91,6 +91,5 @@ const App = () => {
     </div>
   )
 }
-
 export default App
 
