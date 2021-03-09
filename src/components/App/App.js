@@ -17,17 +17,16 @@ const App = () => {
   const grabAllData = () => {
     setLoading(true)
     let randomKeyWord = randomizeKeywords()
-    let randomNumber = generateRandomNumber(3)
     return Promise.all([
       fetchData('https://api.quotable.io/random?maxLength=140&tags=inspirational'),
-      fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`)
+      fetchData(`https://newsapi.org/v2/everything?q=${keyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
       ])
       .then(responses => {
         return Promise.all(responses.map(response => response.json()))
       })
       .then(responses => {
         setQuote(responses[0])
-        setNews(responses[1].articles[randomNumber])
+        setNews(responses[1].articles[0])
         setKeyWord(randomKeyWord)
         setLoading(false)
       })
@@ -39,11 +38,10 @@ const App = () => {
   const grabNews = () => {
     setLoading(true)
     const randomKeyWord = randomizeKeywords()
-    const randomNumber = generateRandomNumber(3)
-    fetchData(`https://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=${randomKeyWord}&apiKey=32df8cd3a1594f62ae8ccce0e9281e60`)
+    fetchData(`https://newsapi.org/v2/everything?q=${keyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
       .then(response => response.json())
       .then(response => {
-        setNews(response.articles[randomNumber])
+        setNews(response.articles[1])
         setKeyWord(randomKeyWord)
         setLoading(false)
       })

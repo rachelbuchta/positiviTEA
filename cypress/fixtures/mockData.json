@@ -1,33 +1,32 @@
-  {
-    "status": "ok",
-    "totalResults": 16342,
-    "articles": [
-      {
-        "source": {
-        "id": "engadget",
-        "name": "Engadget"
-        },
-        "author": "Jon Fingas",
-        "title": "Scientists sequence 64 human genomes to better reflect genetic diversity",
-        "description": "The Human Genome Project shed light on our species in 2001, but it was a patchwork of different humans' genes that didn't really reflect humanity's genetic makeup. Flash forward 20 years, however, and science is taking a significant leap forward. Researchers …",
-        "url": "https://www.engadget.com/sequence-64-human-genomes-genetic-diversity-195605887.html",
-        "urlToImage": "https://s.yimg.com/uu/api/res/1.2/kh1nr_IBwv7ZtAfRzLlwQQ--~B/aD00NDcyO3c9Nzk1MjthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-02/71ea0fe0-79f7-11eb-a732-012e236670a5.cf.jpg",
-        "publishedAt": "2021-02-28T19:56:05Z",
-        "content": "The Human Genome Project shed light on our species in 2001, but it was a patchwork of different humans' genes that didn't really reflect humanity's genetic makeup. Flash forward 20 years, however, an… [+1192 chars]"
-      },
-      {
-        "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch"
-        },
-        "author": "Megan Rose Dickey",
-        "title": "Hear from Uber, Facebook and Netflix about diversity, equity and inclusion tomorrow at TC Sessions: Justice",
-        "description": "Tech companies are no stranger to controversy and workplace issues. Over the years, it’s become clear that no company is immune from diversity issues. But it’s the job of those in the diversity, equity and inclusion departments to create and foster environmen…",
-        "url": "http://techcrunch.com/2021/03/01/hear-from-uber-facebook-and-netflix-about-diversity-equity-and-inclusion-tomorrow-at-tc-sessions-justice/",
-        "urlToImage": "https://techcrunch.com/wp-content/uploads/2021/02/bo-young-wade-davis-sandra-altine.png?w=711",
-        "publishedAt": "2021-03-01T17:10:53Z",
-        "content": "Tech companies are no stranger to controversy and workplace issues. Over the years, it’s become clear that no company is immune from diversity issues. But it’s the job of those in the diversity, equi… [+3085 chars]"
-      }
-    ]
-  }
-
+{
+"status": "ok",
+"totalResults": 17244,
+"articles": [
+{
+"source": {
+"id": "wired",
+"name": "Wired"
+},
+"author": "Sidney Fussell",
+"title": "Black Tech Employees Rebel Against ‘Diversity Theater’",
+"description": "Companies pledged money and support for people of color. But some say they still face a hostile work environment for speaking out or simply doing their jobs.",
+"url": "https://www.wired.com/story/black-tech-employees-rebel-against-diversity-theater/",
+"urlToImage": "https://media.wired.com/photos/603ed4f4ca2d81b57ccfbdea/191:100/w_1280,c_limit/business_diversity_865962658.jpg",
+"publishedAt": "2021-03-08T12:00:00Z",
+"content": "At the same time as they're harming folks in marginalized communities, they're whitewashing their reputations within the same companies, Ozoma said.\r\nSurviving in this kind of environment is difficul… [+4164 chars]"
+},
+{
+"source": {
+"id": "techcrunch",
+"name": "TechCrunch"
+},
+"author": "Megan Rose Dickey",
+"title": "A glimpse inside the minds of tech’s DEI leaders",
+"description": "Diversity and inclusion as an idea has been on the agenda of tech companies for years now. But the industry still lacks true inclusion, despite best efforts put forth by heads of diversity, equity and inclusion at these companies. At TC Sessions: Justice, I s…",
+"url": "http://techcrunch.com/2021/03/08/a-glimpse-inside-the-minds-of-techs-dei-leaders/",
+"urlToImage": "https://techcrunch.com/wp-content/uploads/2021/03/justice-speaker-davis-lee.jpg?w=711",
+"publishedAt": "2021-03-08T16:25:28Z",
+"content": "Diversity and inclusion as an idea has been on the agenda of tech companies for years now. But the industry still lacks true inclusion, despite best efforts put forth by heads of diversity, equity an… [+8719 chars]"
+}
+]
+}

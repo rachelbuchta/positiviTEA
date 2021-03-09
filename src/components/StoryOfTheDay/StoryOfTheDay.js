@@ -32,7 +32,7 @@ useEffect(() => {
 
   return (
     <>
-    {!Object.keys(news).length && <Redirect to='/'/> }
+    {/* {!Object.keys(news).length && <Redirect to='/'/> } */}
     {loading ? <h2 className='loading'>Keep on Keepin on..</h2> :
     <article className='story'>
       <h2 className='sod'>Story Of The Day</h2>
