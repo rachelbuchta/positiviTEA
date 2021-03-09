@@ -20,7 +20,7 @@ export const fetchNews = () => {
 
 export const randomizeKeywords = () => {
   const keyWords = ['mindfulness', 'science', 'innovation', 'funny', 'national geographic', 'optimistic', 'social justice', 'art', 'technology', 'kindness', 'sustainability', 'space', 'diversity']
-  const chosenKeyword = generateRandomNumber(10)
+  const chosenKeyword = generateRandomNumber(13)
   console.log(keyWords[chosenKeyword])
   return keyWords[chosenKeyword]
 }
