@@ -32,74 +32,7 @@ describe('positiviTEA. Story of the Day Page', () => {
         fixture:'mockData.json',
         statusCode: 201,
       })
-      
   })
-      // fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'science'
-      // },fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'innovation'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'funny'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'national geographic'
-      // }, fixture:'mockData.json'})      
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'optimistic'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'social justice'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'art'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'technology'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'kindness'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'sustainability'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'space'
-      // }, fixture:'mockData.json'}) 
-      //   cy.intercept({method:'GET', pathname: '/everything', query: {
-      //   q: 'diversity'
-      // }})
-
-      
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-      // cy.intercept('GET', '/everything', {fixture:'mockData.json'})
-  
-    // cy.fixture('quoteData.json')
-    //     .then((quote) => {
-    //       console.log(quote)
-        
-          // cy.intercept('GET', 'http://api.quotable.io/random?maxLength=140&tags=inspirational', {
-          //   statusCode: 201,
-          //   body: quote
-          // })
-        
-      // cy.fixture('mockData.json')
-      //   .then((news) => {
-      //     console.log(news.articles[0])
-      //     cy.intercept('GET', `http://newsapi.org/v2/everything?pageSize=3&sortBy=relevancy&q=diversity&apiKey=a61e5a41227a47ed875a3bbe1042a8d6`, {
-      //       statusCode: 201,
-      //       body: news.articles[0]
-      //     })
-      //   })
 
   it('Should be able to click spill button and be navigated to story of the day page with a header, main content section and nav buttons', () => {
     cy.get('a[href*="/story"]').click().get('.story').should('be.visible').children('.sod', '.contentWrapper', '.navBtns')
@@ -126,20 +59,19 @@ describe('positiviTEA. Story of the Day Page', () => {
     cy
       .get('.story').find('.sod').should('contain', 'Story Of The Day')
     cy
-      .get('.story').find('.contentWrapper').find('.newsImage').should('have.attr', 'src')
-      // .should('include', 'https://s.yimg.com/uu/api/res/1.2/kh1nr_IBwv7ZtAfRzLlwQQ--~B/aD00NDcyO3c9Nzk1MjthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-02/71ea0fe0-79f7-11eb-a732-012e236670a5.cf.jpg')
+      .get('.story').find('.contentWrapper').find('.newsImage').should('have.attr', 'src').should('include', 'https://media.wired.com/photos/603ed4f4ca2d81b57ccfbdea/191:100/w_1280,c_limit/business_diversity_865962658.jpg')
     cy
       .get('.story').find('.titleWrapper').children('.storyTitle')
-      // .should('contain', 'Scientists sequence 64 human genomes to better reflect genetic diversity')
+      .should('contain', "Black Tech Employees Rebel Against ‘Diversity Theater’")
     cy
       .get('.story').find('.dateAndLabel').children('.date')
-      // .should('contain', 'Sun Feb 28 2021')
+      .should('contain', 'Mon Mar 08 2021')
     cy
       .get('.story').find('.dateAndLabel').children('.label')
-      // .should('contain', 'diversity')
+      .should('have.length', 1)
     cy
       .get('.story').find('.descriptionWrapper').children('.description')
-      // .should('contain', "The Human Genome Project shed light on our species in 2001, but it was a patchwork of different humans' genes that didn't really reflect humanity's genetic makeup. Flash forward 20 years, however, and science is taking a significant leap forward. Researchers …")
+      .should('contain', "Companies pledged money and support for people of color. But some say they still face a hostile work environment for speaking out or simply doing their jobs.")
     cy
       .get('.story').find('.descriptionWrapper').children('.viewMore').should('contain', 'See Full Story')
   })
@@ -174,7 +106,7 @@ describe('positiviTEA. Story of the Day Page', () => {
       .get('.story').find('.spillAgain').click()
     cy
       .get('.story').find('.titleWrapper').children('.storyTitle')
-      // .should('contain', 'Hear from Uber, Facebook and Netflix about diversity, equity and inclusion tomorrow at TC Sessions: Justice')
+      .should('contain', "A glimpse inside the minds of tech’s DEI leaders")
   })
 
   it('Should navigate to saved stories page', () => {
@@ -210,8 +142,7 @@ describe('positiviTEA. Favorites Page', () => {
       .get('a[href*="/story"]').click().get('.story').find('.favorite').click({ force : true })
       .get('.story').find('.viewSaved').click()
       .get('.favorite-section').children('.cardAndDelete').should('have.length', 1)
-    // cy
-    //   .get('.favorite-section').find('.card').children('.savedTitle').should('contain', 'Scientists sequence 64 human genomes to better reflect genetic diversity')
+      .get('.favorite-section').find('.card').find('.savedTitle').should('contain', "A glimpse inside the minds of tech’s DEI leaders")
   })
 
   it('Should be able to see full article in a new tab in the browser', () => {

@@ -19,7 +19,7 @@ const App = () => {
     let randomKeyWord = randomizeKeywords()
     return Promise.all([
       fetchData('https://api.quotable.io/random?maxLength=140&tags=inspirational'),
-      fetchData(`https://newsapi.org/v2/everything?q=${keyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
+      fetchData(`https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
       ])
       .then(responses => {
         return Promise.all(responses.map(response => response.json()))
