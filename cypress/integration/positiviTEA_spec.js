@@ -17,9 +17,22 @@ describe('positiviTEA. Story of the Day Page', () => {
       cy.intercept('GET', '/random', {fixture: 'quoteData.json'})
       cy.intercept('GET','/everything',{
         q: 'diversity',
+        q: 'mindfulness',
+        q: 'science',
+        q: 'innovation',
+        q: 'funny',
+        q: 'national geographic',
+        q: 'optimistic',
+        q: 'social justice',
+        q: 'art',
+        q: 'technology',
+        q: 'kindness',
+        q: 'sustainability',
+        q: 'space',
         fixture:'mockData.json',
         statusCode: 201,
       })
+
   })
 
   it('Should be able to click spill button and be navigated to story of the day page with a header, main content section and nav buttons', () => {
@@ -99,8 +112,20 @@ describe('positiviTEA. Story of the Day Page', () => {
 
 describe('positiviTEA. Favorites Page', () => {
   beforeEach(() => {
-    cy.intercept('GET','/everything',{
+    cy.intercept('GET','/everything', {
         q: 'diversity',
+        q: 'mindfulness',
+        q: 'science',
+        q: 'innovation',
+        q: 'funny',
+        q: 'national geographic',
+        q: 'optimistic',
+        q: 'social justice',
+        q: 'art',
+        q: 'technology',
+        q: 'kindness',
+        q: 'sustainability',
+        q: 'space',
         fixture:'mockData.json',
         statusCode: 201,
       })
@@ -129,8 +154,20 @@ describe('positiviTEA. Favorites Page', () => {
 
 describe('Loading Page', () => {
   it('Should show a loading page when waiting for data to be retrieved from an outside source', () => {
-    cy.intercept('GET','/everything',{
+    cy.intercept('GET','/everything', {
         q: 'diversity',
+        q: 'mindfulness',
+        q: 'science',
+        q: 'innovation',
+        q: 'funny',
+        q: 'national geographic',
+        q: 'optimistic',
+        q: 'social justice',
+        q: 'art',
+        q: 'technology',
+        q: 'kindness',
+        q: 'sustainability',
+        q: 'space',
         fixture:'mockData.json',
         statusCode: 201,
         delay: 7000
@@ -143,9 +180,11 @@ describe('Loading Page', () => {
 
 describe('404 Error Page', () => {
   it('Should render 404 error page', () => {
-    cy.intercept('GET', '/everything', {
+     cy.intercept('GET','/everything', {
         statusCode: 404
     })
+    cy.visit('http://localhost:3000')
+      .get('main').find('.spill-button').should('contain', 'Spill it..').click()
     cy
       .get('h2').should('contain', 'We are having issues getting information, please try again later!')
   })

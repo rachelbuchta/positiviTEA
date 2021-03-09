@@ -22,7 +22,7 @@ export const quotePath = () => {
 }
 
 export const newsPath = (randomKeyWord) => {
-  return `https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`
+  return `https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=38cf827884e446c4896980655d738a61`
 }
 
 
