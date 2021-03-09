@@ -11,13 +11,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 66vh;
   width: 80vw;
 }
 
 .sod {
-  font-size: 1.8em;
-  margin: 0%;
+  font-size: 1.7em;
+  margin: 1%;
   width: 80vw;
 }
 
@@ -84,16 +85,20 @@
   justify-content: space-around;
   width: 50%;
   padding: 1%;
-  height: 10%;
+  height: 9.5%;
 }
 
 .favorite {
-  width: 3em;
+  width: 3.6em;
   height: fit-content;
 }
 
+.favorite:hover {
+  cursor: pointer;
+}
+
 .viewSaved {
-  width: 3em;
+  width: 3.6em;
 }
 
 span {
@@ -101,20 +106,23 @@ span {
 }
 
 .spillAgain {
-  color: #494949 !important;
+  color: #494949;
   text-transform: uppercase;
   text-decoration: none;
   background: #ffffff;
   padding: 20px;
-  border: 4px solid #494949 !important;
+  border: 4px solid #494949;
   display: inline-block;
+  font-size: small;
+  font-weight: bolder;
 }
 
 .spillAgain:hover {
-  color: #ffffff !important;
+  color: #ffffff;
   background: #F5E16E;
-  border-color: #F5E16E !important;
+  border-color: #F5E16E;
   transition: all 0.4s ease 0s;
+  cursor: pointer;
 }
 
 .label {
@@ -133,3 +141,79 @@ span {
   background-color: #fefae0;
   height: 100vh;
 }
+
+@media screen and (min-width: 1250px) {
+    .contentWrapper {
+      align-self: center;
+    }
+    .newsImage {
+      width: 48%;
+      max-height: 40%;
+    }
+
+    .imgWrapper {
+      width: 60%;
+    }
+
+    .dateAndLabel {
+      width: 60%;
+    }
+
+    .description {
+      width: 60%;
+      font-size: .8em;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1250px) {
+
+  .newsImage {
+    width: 70%;
+  }
+  .imgWrapper {
+    width: 88%;
+  } 
+
+  .dateAndLabel {
+    width: 88%;
+  }
+
+  .description {
+    width: 88%;
+  }
+
+  .newsImage {
+    height: 40%;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width:700px) {
+  .newsImage {
+    max-height: 30%;
+    align-self: center;
+  }
+
+  .storyTitle {
+    font-size: smaller;
+    margin: 0;
+  }
+
+  .navBtns {
+    width: 90%;
+  }
+
+  .imgWrapper {
+    height: 40%;
+  }
+
+  .dateAndLabel {
+    font-size: smaller;
+  }
+
+  .navBtns {
+    width: 70%;
+  }
+
+}
+
+

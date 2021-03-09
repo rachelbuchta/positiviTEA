@@ -1,9 +1,35 @@
+.favorites-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center; 
+  justify-content: space;
+  height: 100vh;
+}
+
 .favorite-section {
   display: grid;
-  grid-template-columns:1fr 1fr;
-  padding: 2%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 3%;
   justify-content: center;
-  grid-gap: 1em;
-  height: 80vh;
+  grid-gap: 2em;
+  height: 97%;
   background-color: #fefae0;
+
 }
+
+.fave-header {
+  background-color: #fefae0;
+  margin: 0;
+  height: 3%;
+}
+
+.msgLink {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefae0;
+  justify-content: center;
+}
+
+
+

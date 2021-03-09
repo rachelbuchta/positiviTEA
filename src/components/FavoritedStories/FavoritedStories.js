@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './FavoritedStories.css'
+import { Link } from 'react-router-dom'
 import FavoritedCards from '../FavoritedCards/FavoritedCards'
 import PropTypes from 'prop-types'
 
@@ -43,11 +44,19 @@ const FavoritedStories = ({loading}) => {
 
   return (
     <>
-      {loading ? <h2>Keep on Keepin on..</h2> :
-      <section className='favorite-section'>
-        {createSavedCards()}
-      </section>
-      }
+      <h2 className='fave-header'>Saved Stories</h2>
+        {Object.keys(localStorage).length === 0 && 
+          <Link className='msgLink' to='/story'>
+            <h2>You haven't saved any stories, yet!</h2> 
+          </Link>
+        }
+        {loading ? <h2>Keep on Keepin on..</h2> :
+          <div className='favorites-wrapper'>
+            <section className='favorite-section'>
+              {createSavedCards()}
+            </section>
+          </div>
+        }
     </>
   )
 }
