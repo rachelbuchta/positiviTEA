@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
-import {fetchData, generateRandomNumber, randomizeKeywords} from '../../utilities'
+import {fetchData, generateRandomNumber, randomizeKeywords, errorMessage} from '../../utilities'
 import StoryOfTheDay from '../StoryOfTheDay/StoryOfTheDay'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
 import Header from '../Header/Header'
@@ -18,7 +18,7 @@ const App = () => {
     setLoading(true)
     let randomKeyWord = randomizeKeywords()
     return Promise.all([
-      fetchData('https://api.quotable.io/random?maxLength=140&tags=inspirational'),
+      fetchData('https://api.quotable.io/random?maxLength=120&tags=inspirational'),
       fetchData(`https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`)
       ])
       .then(responses => {
@@ -31,7 +31,8 @@ const App = () => {
         setLoading(false)
       })
       .catch(error => {
-        setError(error.message)
+        console.log(error)
+        setError(errorMessage)
       })
   }
 
@@ -46,7 +47,8 @@ const App = () => {
         setLoading(false)
       })
       .catch(error => {
-        setError(error.message)
+        console.log(error)
+        setError(errorMessage)
       })
   }
 
@@ -69,7 +71,7 @@ const App = () => {
             return (
             <>
               <Header quote={quote} />
-              <StoryOfTheDay loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />
+              <StoryOfTheDay error={error} loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />
             </>
             )}
           }
@@ -81,7 +83,7 @@ const App = () => {
             return (
               <>
                 <Header quote={quote}/>
-                <FavoritedStories  loading={loading}/>
+                <FavoritedStories  error={error} loading={loading}/>
               </>
             )}
           }
