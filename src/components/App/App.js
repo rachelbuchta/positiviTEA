@@ -1,36 +1,60 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
-import {fetchNews, fetchQuotes, generateRandomNumber, randomizeKeywords} from '../../utilities'
-import StoryPage from '../StoryPage/StoryPage'
+import {fetchData, randomizeKeywords, errorMessage, quotePath, newsPath} from '../../utilities'
+import StoryOfTheDay from '../StoryOfTheDay/StoryOfTheDay'
 import FavoritedStories from '../FavoritedStories/FavoritedStories'
 import Header from '../Header/Header'
-
 
 const App = () => {
   const [quote, setQuote] = useState({})
   const [news, setNews] = useState({})
-  const [landingPageView, setLandingPageView] = useState(true)
   const [keyWord, setKeyWord] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const grabAllData = () => {
-    fetchQuotes()
-      .then(response => {
-        setQuote(response)
+    setLoading(true)
+    let randomKeyWord = randomizeKeywords()
+    return Promise.all([
+      fetchData(quotePath()),
+      fetchData(newsPath(randomKeyWord))
+    ])
+      .then(responses => {
+        return Promise.all(responses.map(response => response.json()))
       })
-      .then(grabNews())
-      .then(setLandingPageView(false))
+      .then(responses => {
+        setQuote(responses[0])
+        setNews(responses[1].articles[0])
+        setKeyWord(randomKeyWord)
+        setLoading(false)
+      })
+      .catch(error => {
+        console.log(error)
+        setError(errorMessage)
+      })
   }
 
   const grabNews = () => {
-    fetchNews()
+    setLoading(true)
+    const randomKeyWord = randomizeKeywords()
+    fetchData(newsPath(randomKeyWord))
+      .then(response => response.json())
       .then(response => {
-        setNews(response.articles[generateRandomNumber(3)])
+        setNews(response.articles[1])
+        setKeyWord(randomKeyWord)
+        setLoading(false)
       })
-      .then(setLandingPageView(false))
-      .then(setKeyWord(randomizeKeywords))
+      .catch(error => {
+        console.log(error)
+        setError(errorMessage)
+      })
   }
+
+  useEffect(() => {
+    grabAllData()
+  },[])
 
   return (
     <div className="App">
@@ -39,22 +63,33 @@ const App = () => {
           path='/'
           render={() => 
             <LandingPage grabAllData={grabAllData} />}
-        />
-        <Header landingPageView={landingPageView} quote={quote}/>
+        />      
         < Route 
           exact
           path='/story'
-          render={() => 
-            <StoryPage grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />}
+          render={() => { 
+            return (
+            <>
+              <Header quote={quote} />
+              <StoryOfTheDay error={error} loading={loading} grabNews={grabNews} quote={quote} news={news} keyWord={keyWord} />
+            </>
+            )}
+          }
         />
         < Route
           exact
           path='/favorite-stories'
-          render={() => 
-            <FavoritedStories />}
+          render={() => {
+            return (
+              <>
+                <Header quote={quote}/>
+                <FavoritedStories  error={error} loading={loading}/>
+              </>
+            )}
+          }
         />
     </div>
   )
 }
-
 export default App
+

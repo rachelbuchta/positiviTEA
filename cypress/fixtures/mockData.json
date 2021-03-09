@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "totalResults": 17244,
+  "articles": [
+    {
+    "source": {
+    "id": "wired",
+    "name": "Wired"
+    },
+    "author": "Sidney Fussell",
+    "title": "Black Tech Employees Rebel Against ‘Diversity Theater’",
+    "description": "Companies pledged money and support for people of color. But some say they still face a hostile work environment for speaking out or simply doing their jobs.",
+    "url": "https://www.wired.com/story/black-tech-employees-rebel-against-diversity-theater/",
+    "urlToImage": "https://media.wired.com/photos/603ed4f4ca2d81b57ccfbdea/191:100/w_1280,c_limit/business_diversity_865962658.jpg",
+    "publishedAt": "2021-03-08T12:00:00Z",
+    "content": "At the same time as they're harming folks in marginalized communities, they're whitewashing their reputations within the same companies, Ozoma said.\r\nSurviving in this kind of environment is difficul… [+4164 chars]"
+    },
+    {
+    "source": {
+    "id": "techcrunch",
+    "name": "TechCrunch"
+    },
+    "author": "Megan Rose Dickey",
+    "title": "A glimpse inside the minds of tech’s DEI leaders",
+    "description": "Diversity and inclusion as an idea has been on the agenda of tech companies for years now. But the industry still lacks true inclusion, despite best efforts put forth by heads of diversity, equity and inclusion at these companies. At TC Sessions: Justice, I s…",
+    "url": "http://techcrunch.com/2021/03/08/a-glimpse-inside-the-minds-of-techs-dei-leaders/",
+    "urlToImage": "https://techcrunch.com/wp-content/uploads/2021/03/justice-speaker-davis-lee.jpg?w=711",
+    "publishedAt": "2021-03-08T16:25:28Z",
+    "content": "Diversity and inclusion as an idea has been on the agenda of tech companies for years now. But the industry still lacks true inclusion, despite best efforts put forth by heads of diversity, equity an… [+8719 chars]"
+    }
+  ]
+}

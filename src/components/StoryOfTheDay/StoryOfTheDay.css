@@ -137,6 +137,11 @@ span {
   margin: 0;
 }
 
+.loading {
+  background-color: #fefae0;
+  height: 100vh;
+}
+
 @media screen and (min-width: 1250px) {
     .contentWrapper {
       align-self: center;
@@ -159,7 +164,6 @@ span {
       font-size: .8em;
     }
 }
-
 
 @media screen and (min-width: 700px) and (max-width: 1250px) {
 
@@ -211,6 +215,5 @@ span {
   }
 
 }
-
 
 

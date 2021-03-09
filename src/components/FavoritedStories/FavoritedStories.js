@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './FavoritedStories.css'
-import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
 import FavoritedCards from '../FavoritedCards/FavoritedCards'
+import PropTypes from 'prop-types'
 
-const FavoritedStories = () => {
+const FavoritedStories = ({loading}) => {
   const [savedStories, setSavedStories] = useState({})
  
   const getLocalStorage = () => {
@@ -44,19 +44,25 @@ const FavoritedStories = () => {
 
   return (
     <>
-    <h2 className='fave-header'>Saved Stories</h2>
+      <h2 className='fave-header'>Saved Stories</h2>
         {Object.keys(localStorage).length === 0 && 
-        <Link className='msgLink' to='/story'>
-          <h2>You haven't saved any stories, yet!</h2> 
-        </Link>
+          <Link className='msgLink' to='/story'>
+            <h2>You haven't saved any stories, yet!</h2> 
+          </Link>
         }
-    <div className='favorites-wrapper'>
-      <section className='favorite-section'>
-        {createSavedCards()}
-      </section>
-    </div>
+        {loading ? <h2>Keep on Keepin on..</h2> :
+          <div className='favorites-wrapper'>
+            <section className='favorite-section'>
+              {createSavedCards()}
+            </section>
+          </div>
+        }
     </>
   )
 }
 
 export default FavoritedStories
+
+FavoritedCards.propTypes = {
+  loading: PropTypes.bool
+}
