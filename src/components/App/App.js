@@ -58,6 +58,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Switch>
         < Route 
           exact
           path='/'
@@ -88,6 +89,8 @@ const App = () => {
             )}
           }
         />
+      {error && < Redirect to='/' />}
+      </Switch>
     </div>
   )
 }

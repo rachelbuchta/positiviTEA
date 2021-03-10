@@ -86,5 +86,6 @@ StoryOfTheDay.propTypes = {
   news: PropTypes.object,
   grabNews: PropTypes.func,
   keyWord: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  error: PropTypes.string
 }
