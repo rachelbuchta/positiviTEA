@@ -13,7 +13,7 @@ export const generateRandomNumber = (num) => {
 }
 
 export const errorMessage = () => {
-  return "We are having issues getting information, please try again later!"
+  return 'We are having issues getting information, please try again later!'
 }
 
 export const quotePath = () => {
@@ -21,7 +21,7 @@ export const quotePath = () => {
 }
 
 export const newsPath = (randomKeyWord) => {
-  return `https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=38cf827884e446c4896980655d738a61`
+  return `https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=79cb50e2f48048a6818802a4a6f1b6fd`
 }
 
 

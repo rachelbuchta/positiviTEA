@@ -57,7 +57,7 @@ useEffect(() => {
             </section>
             <section className='descriptionWrapper'>
               <p className='description'>{news.description}</p>
-              <a className='viewMore' href={news.url} target="_blank">
+              <a className='viewMore' href={news.url} target='_blank'>
                 See Full Story
               </a>
             </section>
