@@ -16,6 +16,7 @@ describe('positiviTEA. Story of the Day Page', () => {
   beforeEach(() => {
       cy.intercept('GET', '/random', {fixture: 'quoteData.json'})
       cy.intercept('GET','/everything',{
+        q: 'diversity',
         q: 'mindfulness',
         q: 'science',
         q: 'innovation',
@@ -28,10 +29,10 @@ describe('positiviTEA. Story of the Day Page', () => {
         q: 'kindness',
         q: 'sustainability',
         q: 'space',
-        q: 'diversity',
         fixture:'mockData.json',
         statusCode: 201,
       })
+
   })
 
   it('Should be able to click spill button and be navigated to story of the day page with a header, main content section and nav buttons', () => {
@@ -79,7 +80,6 @@ describe('positiviTEA. Story of the Day Page', () => {
   it('Should have the whole article pop up in a new tab in your browser when the See Full Story link is clicked', () => {
     cy
       .get('.story').find('.descriptionWrapper').children('.viewMore').should('contain', 'See Full Story')
-    // cy.visit('https://www.engadget.com/sequence-64-human-genomes-genetic-diversity-195605887.html')
   })
 
   it('Should include 3 buttons in the nav button section', () => {
@@ -108,17 +108,12 @@ describe('positiviTEA. Story of the Day Page', () => {
       .get('.story').find('.titleWrapper').children('.storyTitle')
       .should('contain', "A glimpse inside the minds of tech’s DEI leaders")
   })
-
-  it('Should navigate to saved stories page', () => {
-    cy
-      .get('.story').find('.viewSaved').click()
-    cy.url().should('include', 'favorite-stories')
-  })
 })
 
 describe('positiviTEA. Favorites Page', () => {
   beforeEach(() => {
-    cy.intercept('GET','/everything',{
+    cy.intercept('GET','/everything', {
+        q: 'diversity',
         q: 'mindfulness',
         q: 'science',
         q: 'innovation',
@@ -131,24 +126,22 @@ describe('positiviTEA. Favorites Page', () => {
         q: 'kindness',
         q: 'sustainability',
         q: 'space',
-        q: 'diversity',
         fixture:'mockData.json',
         statusCode: 201,
       })
   })
 
-  it('Should contain stories a user has saved', () => {
+  it('Should navigate to saved stories page and contain stories a user has saved', () => {
     cy
-      .get('a[href*="/story"]').click().get('.story').find('.favorite').click({ force : true })
+      .get('.story').find('.favorite').click({ force : true })
       .get('.story').find('.viewSaved').click()
       .get('.favorite-section').children('.cardAndDelete').should('have.length', 1)
-      .get('.favorite-section').find('.card').find('.savedTitle').should('contain', "A glimpse inside the minds of tech’s DEI leaders")
+    cy.url().should('include', 'favorite-stories')
   })
 
   it('Should be able to see full article in a new tab in the browser', () => {
     cy
       .get('.favorite-section').find('.more')
-    // cy.visit('https://www.engadget.com/sequence-64-human-genomes-genetic-diversity-195605887.html')
   })
 
   it('Should be able to delete a favorite from favorites page', () => {
@@ -156,6 +149,44 @@ describe('positiviTEA. Favorites Page', () => {
       .get('.favorite-section').find('.remove').click()
     cy
       .get('.favorite-section').children('.cardAndDelete').should('have.length', 0)
+  })
+})
+
+describe('Loading Page', () => {
+  it('Should show a loading page when waiting for data to be retrieved from an outside source', () => {
+    cy.intercept('GET','/everything', {
+        q: 'diversity',
+        q: 'mindfulness',
+        q: 'science',
+        q: 'innovation',
+        q: 'funny',
+        q: 'national geographic',
+        q: 'optimistic',
+        q: 'social justice',
+        q: 'art',
+        q: 'technology',
+        q: 'kindness',
+        q: 'sustainability',
+        q: 'space',
+        fixture:'mockData.json',
+        statusCode: 201,
+        delay: 7000
+    })
+      cy.visit('http://localhost:3000')
+        .get('main').find('.spill-button').should('contain', 'Spill it..').click()
+      cy.get('.loading').should('contain', 'Keep on Keepin on..')
+  })
+})
+
+describe('404 Error Page', () => {
+  it('Should render 404 error page', () => {
+     cy.intercept('GET','/everything', {
+        statusCode: 404
+    })
+    cy.visit('http://localhost:3000')
+      .get('main').find('.spill-button').should('contain', 'Spill it..').click()
+    cy
+      .get('h2').should('contain', 'We are having issues getting information, please try again later!')
   })
 })
 

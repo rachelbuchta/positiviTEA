@@ -32,6 +32,7 @@
   height: 80%;
   font-size: 1.2em;
   padding: 1%;
+  width: 94%;
 }
 
 .savedTitle {
@@ -51,11 +52,14 @@
   background-size: 100px 100px;
 }
 
-
 .remove {
   width: 1em;
   justify-self: flex-start;
   margin: 1%;
+}
+
+.remove:hover {
+  cursor: pointer;
 }
 
 .more {

@@ -5,7 +5,6 @@ export const fetchData = (url) => {
 export const randomizeKeywords = () => {
   const keyWords = ['mindfulness', 'science', 'innovation', 'funny', 'national geographic', 'optimistic', 'social justice', 'art', 'technology', 'kindness', 'sustainability', 'space', 'diversity']
   const chosenKeyword = generateRandomNumber(13)
-  console.log(keyWords[chosenKeyword])
   return keyWords[chosenKeyword]
 }
 
@@ -14,7 +13,7 @@ export const generateRandomNumber = (num) => {
 }
 
 export const errorMessage = () => {
-  return "We are having issues getting information, please try again later!"
+  return 'We are having issues getting information, please try again later!'
 }
 
 export const quotePath = () => {
@@ -22,7 +21,7 @@ export const quotePath = () => {
 }
 
 export const newsPath = (randomKeyWord) => {
-  return `https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=76125fd4642a4e4c94a43f114bac24a5`
+  return `https://newsapi.org/v2/everything?q=${randomKeyWord}&apiKey=79cb50e2f48048a6818802a4a6f1b6fd`
 }
 
 
