@@ -35,14 +35,10 @@ From here, a user can see the stories they have saved, click the title to see th
 4. Run `npm install`
 5. Run `npm start`
 
-OR
-
-Visit live site [here]()
-
 ## Planning
 I utilized GitHub Projects for project management, that board can be found [here](https://github.com/rachelbuchta/positiviTEA/projects/1) <br/>
 The detailed spec for this project can be found [here](https://frontend.turing.io/projects/module-3/niche-audience.html) <br/>
-Planning and wireframing can be found [here]()
+Planning and wireframing can be found [here](https://miro.com/app/board/o9J_lSW6bRc=/)
 
 ## Challenges
 * Finding an API that was easy to work with and provided data that I could use.
